@@ -8,7 +8,7 @@ Currently supported:
 
 ## Publish example
 
-```
+```go
 package main
 
 import (
@@ -42,7 +42,7 @@ func main() {
 ```
 
 ## Subscribe 
-```
+```go
 package main
 
 import (
