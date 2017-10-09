@@ -3,7 +3,7 @@ package event
 //IEvent interface
 type IEvent interface {
 	Connect(config IEventConfiguration) error
-	Publish(IMessage) error
+	Publish(m []byte) error
 	Subscribe(func(IMessage)) error
 	CancelSubscribe()
 }
@@ -14,7 +14,7 @@ func Connect(i IEvent, c IEventConfiguration) error {
 }
 
 //Publish a message
-func Publish(i IEvent, m IMessage) error {
+func Publish(i IEvent, m []byte) error {
 	return i.Publish(m)
 }
 

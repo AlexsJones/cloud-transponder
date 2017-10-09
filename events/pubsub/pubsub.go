@@ -65,8 +65,9 @@ func (p *PubSub) Connect(conf event.IEventConfiguration) error {
 }
 
 //Publish ...
-func (p *PubSub) Publish(message event.IMessage) error {
+func (p *PubSub) Publish(data []byte) error {
 
+	p.TopicRef.Publish(p.Ctx, &pubsub.Message{Data: data})
 	return nil
 }
 
