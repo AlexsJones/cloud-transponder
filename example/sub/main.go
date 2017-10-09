@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"time"
 
 	event "github.com/AlexsJones/cloud-transponder/events"
 	"github.com/AlexsJones/cloud-transponder/events/pubsub"
@@ -17,14 +18,19 @@ func main() {
 
 	gconfig.Topic = "cadium"
 	gconfig.ConnectionString = "beamery-trials"
-	gconfig.SubscriptionString = "cadium:sub"
+	gconfig.SubscriptionString = "cadium-sub"
 
-	event.Connect(gpubsub, gconfig)
+	if err := event.Connect(gpubsub, gconfig); err != nil {
+		log.Fatal(err)
+	}
 
-	event.Subscribe(gpubsub, func(arg2 event.IMessage) {
+	if err := event.Subscribe(gpubsub, func(arg2 event.IMessage) {
 
 		log.Printf("Received: %s", string(arg2.GetRaw()))
 		arg2.Ack()
-	})
+	}); err != nil {
+		log.Fatal(err)
+	}
 
+	time.Sleep(time.Minute)
 }

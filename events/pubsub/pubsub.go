@@ -81,12 +81,15 @@ func (p *PubSub) Subscribe(fn func(event.IMessage)) error {
 		pubsub.SubscriptionConfig{Topic: p.TopicRef})
 
 	if err != nil {
-		return err
+		//Do not mark as faral
+		log.Println(err)
 	}
 	p.SubscriptionRef = sub
 
 	cctx, cancel := context.WithCancel(p.Ctx)
 	p.Cancel = cancel
+
+	log.Println("Starting subscription...")
 
 	sub.Receive(cctx, func(arg1 context.Context, arg2 *pubsub.Message) {
 
