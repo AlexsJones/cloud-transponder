@@ -18,3 +18,8 @@ func (p *PubSubMessage) Ack() {
 func (p *PubSubMessage) Nack() {
 	p.Message.Nack()
 }
+
+//GetRaw message
+func (p *PubSubMessage) GetRaw() []byte {
+	return p.Message.Data
+}

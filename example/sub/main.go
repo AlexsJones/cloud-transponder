@@ -23,7 +23,7 @@ func main() {
 
 	event.Subscribe(gpubsub, func(arg2 event.IMessage) {
 
-		log.Println("Received message..")
+		log.Printf("Received: %s", string(arg2.GetRaw()))
 		arg2.Ack()
 	})
 
