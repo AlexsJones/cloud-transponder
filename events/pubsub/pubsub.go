@@ -1,9 +1,10 @@
 package gcloud
 
 import (
-	"context"
 	"errors"
 	"log"
+
+	"golang.org/x/net/context"
 
 	"cloud.google.com/go/pubsub"
 	event "github.com/AlexsJones/cloud-transponder/events"
