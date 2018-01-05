@@ -1,5 +1,8 @@
 # cloud-transponder
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/08da69d625b9649a6b5e/maintainability)](https://codeclimate.com/github/AlexsJones/cloud-transponder/maintainability)
+
+
 A simple abstraction for messaging systems
 
 Currently supported:
